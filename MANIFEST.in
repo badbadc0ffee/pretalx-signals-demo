@@ -1,0 +1,6 @@
+recursive-include pretalx_signals_demo/static *
+recursive-include pretalx_signals_demo/templates *
+exclude pretalx_signals_demo/locale/django.pot
+recursive-include pretalx_signals_demo/locale *
+recursive-include pretalx_signals_demo *.py
+include Makefile
