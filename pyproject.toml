@@ -1,0 +1,47 @@
+[project]
+name = "pretalx-signals-demo"
+dynamic = ["version"]
+description = "pretalx plugin to test all html signals"
+readme = "README.rst"
+license = {text = "Apache Software License"}
+keywords = ["pretalx"]
+authors = [
+  {name = "Florian Moesch", email = "florian@moesch.org"},
+]
+maintainers = [
+  {name = "Florian Moesch", email = "florian@moesch.org"},
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "build",
+  "check-manifest",
+  "flake8",
+  "isort",
+]
+
+[project.urls]
+homepage = "https://github.com/badbadc0ffee/pretalx-signals-demo"
+repository = "https://github.com/badbadc0ffee/pretalx-signals-demo.git"
+
+[project.entry-points."pretalx.plugin"]
+pretalx_signals_demo = "pretalx_signals_demo:PretalxPluginMeta"
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = {attr = "pretalx_signals_demo.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["pretalx*"]
+
+[tool.check-manifest]
+ignore = [".*"]
