@@ -1,4 +1,5 @@
 from django.dispatch import receiver
+
 from pretalx.mail.signals import mail_form_html, mail_forms
 from pretalx.person.signals import speaker_form_html, speaker_forms
 from pretalx.submission.signals import (
@@ -62,3 +63,18 @@ def mail_forms(sender, request, mail, **kwargs):
 @receiver(mail_form_html)
 def mail_form_html(sender, request, mail, **kwargs):
     return '<i class="fa fa-coffee mr-2"></i> Demo text below mail form'
+
+
+try:
+    from samaware.signals import speaker_html, submission_html
+
+    @receiver(speaker_html)
+    def speaker_html(sender, request, user, **kwargs):
+        return '<h3>Demo</h3><i class="fa fa-coffee mr-2"></i> Demo text for Speaker'
+
+    @receiver(submission_html)
+    def submission_html(sender, request, submission, **kwargs):
+        return '<h3>Demo</h3><i class="fa fa-coffee mr-2"></i> Demo text for Submission'
+
+except ImportError:
+    pass

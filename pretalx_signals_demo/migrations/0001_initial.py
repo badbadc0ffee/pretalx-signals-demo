@@ -10,7 +10,6 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
-        ("mail", "0013_mailtemplate_role"),
         ("submission", "0077_answeroption_position"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
